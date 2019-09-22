@@ -49,6 +49,7 @@
         <item name="android:textAppearance">@style/Text.Bold</item>
         <item name="backgroundTint">#fff</item>
         <item name="rippleColor">@color/gray</item>
+        <item name="strokeColor">@color/red</item>
         <item name="cornerRadius">@dimen/view_button_radius</item>
     </style>
 

@@ -8,4 +8,6 @@
     <string name="enter_username">Lütfen kullanıcı adınızı girin.</string>
     <string name="enter_password">Lütfen şifrenizi girin.</string>
     <string name="wrong_username_or_password">Hatalı kullanıcı adı veya şifre.</string>
+    <string name="my_orders">Siparişlerim</string>
+    <string name="logout">Çıkış Yap</string>
 </resources>
