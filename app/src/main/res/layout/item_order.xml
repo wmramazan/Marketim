@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="order"
             type="com.example.marketim.model.Order" />
@@ -25,15 +26,19 @@
                 android:id="@+id/order_date_day"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@{order.date}"
                 android:textAppearance="@style/Text.Date.Day"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="@id/order_date_month"
+                app:layout_constraintEnd_toEndOf="@id/order_date_month"
                 tools:text="08" />
 
             <TextView
                 android:id="@+id/order_date_month"
-                android:layout_width="wrap_content"
+                android:layout_width="@dimen/item_order_date_width"
                 android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@{order.monthString}"
                 android:textAppearance="@style/Text"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/order_date_day"
@@ -45,7 +50,7 @@
                 android:layout_height="@dimen/view_line_height"
                 android:layout_marginStart="@dimen/spacing_base"
                 android:background="@color/gray"
-                app:layout_constraintStart_toEndOf="@+id/order_date_day"
+                app:layout_constraintStart_toEndOf="@+id/order_date_month"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
@@ -53,6 +58,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/spacing_base"
+                android:text="@{order.marketName}"
                 android:textAppearance="@style/Text.Bold"
                 app:layout_constraintEnd_toStartOf="@+id/imageView"
                 app:layout_constraintStart_toEndOf="@+id/order_line"
@@ -67,6 +73,7 @@
                 android:layout_marginTop="@dimen/spacing_tiny"
                 android:ellipsize="end"
                 android:maxLines="1"
+                android:text="@{order.orderName}"
                 android:textAppearance="@style/Text"
                 app:layout_constraintEnd_toStartOf="@+id/order_product_price"
                 app:layout_constraintStart_toEndOf="@id/order_line"
@@ -77,6 +84,7 @@
                 android:id="@+id/imageView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
                 android:contentDescription="@string/expand_collapse"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -86,34 +94,39 @@
                 android:id="@+id/order_product_price"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:paddingStart="6dp"
+                android:paddingEnd="6dp"
                 android:layout_marginTop="@dimen/spacing_tiny"
+                android:text="@{order.productPriceString}"
                 android:textAppearance="@style/Text.Bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/order_market_name"
                 tools:text="25TL" />
 
             <View
-                android:id="@+id/order_status_view"
+                android:id="@+id/order_state_view"
                 android:layout_width="@dimen/view_status_size"
                 android:layout_height="@dimen/view_status_size"
                 android:layout_marginStart="@dimen/spacing_base"
                 android:layout_marginTop="@dimen/spacing_tiny"
-                android:background="@drawable/view_status_orange"
+                android:background="@drawable/view_state_orange"
                 app:layout_constraintStart_toEndOf="@id/order_line"
-                app:layout_constraintTop_toBottomOf="@+id/order_name" />
+                app:layout_constraintTop_toBottomOf="@+id/order_name"
+                app:state="@{order.productState}" />
 
             <TextView
-                android:id="@+id/order_status_text"
+                android:id="@+id/order_state_text"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/spacing_small"
                 android:layout_marginTop="@dimen/spacing_tiny"
                 android:ellipsize="end"
                 android:maxLines="1"
-                android:textAppearance="@style/Text"
-                android:textColor="@color/orange"
-                app:layout_constraintStart_toEndOf="@+id/order_status_view"
+                android:text="@{order.productState}"
+                android:textAppearance="@style/Text.Bold"
+                app:layout_constraintStart_toEndOf="@+id/order_state_view"
                 app:layout_constraintTop_toBottomOf="@+id/order_name"
+                app:stateText="@{order.productState}"
                 tools:text="Hazırlanıyor" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -134,17 +147,18 @@
                 android:layout_marginStart="90dp"
                 android:ellipsize="end"
                 android:maxLines="1"
+                android:text="@{order.productDetail.orderDetail}"
                 android:textAppearance="@style/Text"
                 app:layout_constraintEnd_toStartOf="@+id/order_summary_price"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/order_market_name"
-                tools:ignore="NotSibling"
+                app:layout_constraintTop_toTopOf="parent"
                 tools:text="Sıvı Sabun 250 ml" />
 
             <TextView
                 android:id="@+id/order_summary_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@{order.productDetail.summaryPriceString}"
                 android:textAppearance="@style/Text.Bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"

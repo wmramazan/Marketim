@@ -6,6 +6,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.marketim.util.Constants
 import com.orhanobut.hawk.Hawk
+import timber.log.Timber
 
 /**
  * Created on 9/22/2019
@@ -28,5 +29,13 @@ abstract class BaseActivity : AppCompatActivity() {
     fun rememberMe(): Boolean = Hawk.get(Constants.KEY_REMEMBER_ME) ?: false
 
     fun showMessage(resId: Int) = Toast.makeText(this, resId, Toast.LENGTH_LONG).show()
+
+    open fun showProgress() {
+        Timber.d("showProgress")
+    }
+
+    open fun hideProgress() {
+        Timber.d("hideProgress")
+    }
 
 }

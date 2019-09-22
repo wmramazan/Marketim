@@ -1,6 +1,7 @@
 package com.example.marketim.adapter
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
@@ -36,6 +37,12 @@ class OrderAdapter : RecyclerView.Adapter<OrderViewHolder>() {
         holder.viewDataBinding.also {
             it.order = orders[position]
             it.executePendingBindings()
+
+            it.root.setOnClickListener { _ ->
+                it.orderSummaryLayout.visibility =
+                    if (it.orderSummaryLayout.visibility == View.VISIBLE) View.GONE
+                    else View.VISIBLE
+            }
         }
     }
 }

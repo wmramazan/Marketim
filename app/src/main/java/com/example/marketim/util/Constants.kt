@@ -5,7 +5,7 @@ package com.example.marketim.util
  * @author wmramazan
  */
 object Constants {
-    const val BASE_URL = "http://kariyertechchallenge.mockable.io/"
+    const val BASE_URL = "https://kariyertechchallenge.mockable.io/"
     const val USERNAME = "kariyer"
     const val PASSWORD = "2019ADev"
 

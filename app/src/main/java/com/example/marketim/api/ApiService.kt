@@ -9,6 +9,6 @@ import retrofit2.http.GET
  * @author wmramazan
  */
 interface ApiService {
-    @GET
+    @GET("/")
     fun getOrders(): Call<List<Order>>
 }

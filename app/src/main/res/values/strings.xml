@@ -11,4 +11,5 @@
     <string name="my_orders">Siparişlerim</string>
     <string name="logout">Çıkış Yap</string>
     <string name="expand_collapse">Aç / Kapat</string>
+    <string name="something_went_wrong">Bir şeyler ters gitti!</string>
 </resources>

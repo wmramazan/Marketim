@@ -9,5 +9,9 @@ import com.squareup.moshi.JsonClass
 @JsonClass(generateAdapter = true)
 data class ProductDetail(
     val orderDetail: String,
-    val summaryPrice: Float
-)
+    val summaryPrice: Float) {
+
+    val summaryPriceString: String
+        get() = "${summaryPrice}TL"
+
+}

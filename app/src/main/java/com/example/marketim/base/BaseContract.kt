@@ -10,6 +10,9 @@ class BaseContract {
         fun attach(view: T)
     }
 
-    interface View
+    interface View {
+        fun showProgress()
+        fun hideProgress()
+    }
 
 }
