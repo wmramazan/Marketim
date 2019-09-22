@@ -9,4 +9,8 @@
     <dimen name="view_button_height">52dp</dimen>
     <dimen name="view_button_text_size">16sp</dimen>
     <dimen name="view_button_radius">8dp</dimen>
+    <dimen name="view_line_width">4dp</dimen>
+    <dimen name="view_status_radius">4dp</dimen>
+    <dimen name="view_status_size">24dp</dimen>
+    <dimen name="view_line_height">96dp</dimen>
 </resources>

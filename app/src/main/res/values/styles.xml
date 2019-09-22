@@ -22,6 +22,11 @@
         <item name="android:textSize">32sp</item>
     </style>
 
+    <style name="Text.Date.Day" parent="Text.Bold">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">32sp</item>
+    </style>
+
     <style name="TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"/>
 
     <style name="Button" parent="Widget.MaterialComponents.Button">
