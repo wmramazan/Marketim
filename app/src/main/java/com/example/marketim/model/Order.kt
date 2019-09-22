@@ -21,6 +21,6 @@ data class Order(
         get() = DateFormatSymbols().months[month.toInt() - 1]
 
     val productPriceString: String
-        get() = "${productPrice}TL"
+        get() = "$productPrice TL"
 
 }

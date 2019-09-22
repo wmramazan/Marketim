@@ -14,4 +14,5 @@
     <dimen name="view_status_size">24dp</dimen>
     <dimen name="view_line_height">96dp</dimen>
     <dimen name="item_order_date_width">68dp</dimen>
+    <dimen name="item_order_price_padding">6dp</dimen>
 </resources>

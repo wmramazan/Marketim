@@ -12,6 +12,6 @@ data class ProductDetail(
     val summaryPrice: Float) {
 
     val summaryPriceString: String
-        get() = "${summaryPrice}TL"
+        get() = "$summaryPrice TL"
 
 }
