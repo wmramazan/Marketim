@@ -10,6 +10,8 @@ import com.example.marketim.adapter.OrderAdapter
 import com.example.marketim.base.BaseActivity
 import com.example.marketim.model.Order
 import com.example.marketim.ui.login.LoginActivity
+import com.example.marketim.util.Constants
+import com.orhanobut.hawk.Hawk
 import kotlinx.android.synthetic.main.activity_main.*
 import org.koin.android.ext.android.inject
 
@@ -47,6 +49,11 @@ class MainActivity : BaseActivity(), MainContract.View {
                 .setPositiveButton(android.R.string.yes) { _, _ -> logout() }
                 .show()
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Hawk.put(Constants.KEY_LOGGED_IN, false)
     }
 
     override fun showOrders(orders: List<Order>) {

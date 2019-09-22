@@ -21,7 +21,7 @@ abstract class BaseActivity : AppCompatActivity() {
     inline fun <reified T : BaseActivity> launchActivity(clearStack: Boolean = false) {
         val intent = newIntent<T>(this)
         if (clearStack)
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
         startActivity(intent)
     }
 
