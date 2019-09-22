@@ -1,7 +1,8 @@
-package com.example.marketim
+package com.example.marketim.ui.main
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import com.example.marketim.R
 
 class MainActivity : AppCompatActivity() {
 
