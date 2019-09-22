@@ -2,6 +2,7 @@ package com.example.marketim.ui.main
 
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.app.AlertDialog
 import androidx.core.view.ViewCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.marketim.R
@@ -37,6 +38,15 @@ class MainActivity : BaseActivity(), MainContract.View {
         presenter.loadOrders()
 
         ViewCompat.setElevation(bottom_navigation, .4f)
+
+        button_logout.setOnClickListener {
+            AlertDialog.Builder(this)
+                .setTitle(R.string.logout)
+                .setMessage(R.string.logout_dialog_message)
+                .setNegativeButton(android.R.string.no, null)
+                .setPositiveButton(android.R.string.yes) { _, _ -> logout() }
+                .show()
+        }
     }
 
     override fun showOrders(orders: List<Order>) {

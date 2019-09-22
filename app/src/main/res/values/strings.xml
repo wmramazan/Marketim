@@ -12,4 +12,5 @@
     <string name="logout">Çıkış Yap</string>
     <string name="expand_collapse">Aç / Kapat</string>
     <string name="something_went_wrong">Bir şeyler ters gitti!</string>
+    <string name="logout_dialog_message">Çıkmak istediğinize emin misiniz?</string>
 </resources>

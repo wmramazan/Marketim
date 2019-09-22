@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.marketim.ui.login.LoginActivity
 import com.example.marketim.util.Constants
 import com.orhanobut.hawk.Hawk
 import timber.log.Timber
@@ -27,6 +28,11 @@ abstract class BaseActivity : AppCompatActivity() {
     fun isLoggedIn(): Boolean = Hawk.get(Constants.KEY_LOGGED_IN) ?: false
 
     fun rememberMe(): Boolean = Hawk.get(Constants.KEY_REMEMBER_ME) ?: false
+
+    fun logout() {
+        Hawk.deleteAll()
+        launchActivity<LoginActivity>(clearStack = true)
+    }
 
     fun showMessage(resId: Int) = Toast.makeText(this, resId, Toast.LENGTH_LONG).show()
 
