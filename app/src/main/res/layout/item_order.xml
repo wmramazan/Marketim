@@ -1,147 +1,156 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="order"
+            type="com.example.marketim.model.Order" />
+    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/order_content_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="@dimen/spacing_base"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/order_date_day"
-            android:layout_width="wrap_content"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/order_content_layout"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAppearance="@style/Text.Date.Day"
+            android:padding="@dimen/spacing_base"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="08" />
+            app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/order_date_month"
-            android:layout_width="wrap_content"
+            <TextView
+                android:id="@+id/order_date_day"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/Text.Date.Day"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="08" />
+
+            <TextView
+                android:id="@+id/order_date_month"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/Text"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/order_date_day"
+                tools:text="Ekim" />
+
+            <View
+                android:id="@+id/order_line"
+                android:layout_width="@dimen/view_line_width"
+                android:layout_height="@dimen/view_line_height"
+                android:layout_marginStart="@dimen/spacing_base"
+                android:background="@color/gray"
+                app:layout_constraintStart_toEndOf="@+id/order_date_day"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/order_market_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_base"
+                android:textAppearance="@style/Text.Bold"
+                app:layout_constraintEnd_toStartOf="@+id/imageView"
+                app:layout_constraintStart_toEndOf="@+id/order_line"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Market 1" />
+
+            <TextView
+                android:id="@+id/order_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_base"
+                android:layout_marginTop="@dimen/spacing_tiny"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textAppearance="@style/Text"
+                app:layout_constraintEnd_toStartOf="@+id/order_product_price"
+                app:layout_constraintStart_toEndOf="@id/order_line"
+                app:layout_constraintTop_toBottomOf="@+id/order_market_name"
+                tools:text="Şampuan 250 ml" />
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/expand_collapse"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_right" />
+
+            <TextView
+                android:id="@+id/order_product_price"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_tiny"
+                android:textAppearance="@style/Text.Bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/order_market_name"
+                tools:text="25TL" />
+
+            <View
+                android:id="@+id/order_status_view"
+                android:layout_width="@dimen/view_status_size"
+                android:layout_height="@dimen/view_status_size"
+                android:layout_marginStart="@dimen/spacing_base"
+                android:layout_marginTop="@dimen/spacing_tiny"
+                android:background="@drawable/view_status_orange"
+                app:layout_constraintStart_toEndOf="@id/order_line"
+                app:layout_constraintTop_toBottomOf="@+id/order_name" />
+
+            <TextView
+                android:id="@+id/order_status_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_small"
+                android:layout_marginTop="@dimen/spacing_tiny"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textAppearance="@style/Text"
+                android:textColor="@color/orange"
+                app:layout_constraintStart_toEndOf="@+id/order_status_view"
+                app:layout_constraintTop_toBottomOf="@+id/order_name"
+                tools:text="Hazırlanıyor" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/order_summary_layout"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAppearance="@style/Text"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/order_date_day"
-            tools:text="Ekim" />
-
-        <View
-            android:id="@+id/order_line"
-            android:layout_width="@dimen/view_line_width"
-            android:layout_height="@dimen/view_line_height"
-            android:layout_marginStart="@dimen/spacing_base"
             android:background="@color/gray"
-            app:layout_constraintStart_toEndOf="@+id/order_date_day"
-            app:layout_constraintTop_toTopOf="parent"/>
+            android:padding="@dimen/spacing_base"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@id/order_content_layout">
 
-        <TextView
-            android:id="@+id/order_market_name"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/spacing_base"
-            android:textAppearance="@style/Text.Bold"
-            app:layout_constraintEnd_toStartOf="@+id/imageView"
-            app:layout_constraintStart_toEndOf="@+id/order_line"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="Market 1" />
+            <TextView
+                android:id="@+id/order_detail"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="90dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textAppearance="@style/Text"
+                app:layout_constraintEnd_toStartOf="@+id/order_summary_price"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/order_market_name"
+                tools:ignore="NotSibling"
+                tools:text="Sıvı Sabun 250 ml" />
 
-        <TextView
-            android:id="@+id/order_name"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/spacing_base"
-            android:layout_marginTop="@dimen/spacing_tiny"
-            android:ellipsize="end"
-            android:maxLines="1"
-            android:textAppearance="@style/Text"
-            app:layout_constraintEnd_toStartOf="@+id/order_product_price"
-            app:layout_constraintStart_toEndOf="@id/order_line"
-            app:layout_constraintTop_toBottomOf="@+id/order_market_name"
-            tools:text="Şampuan 250 ml" />
+            <TextView
+                android:id="@+id/order_summary_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/Text.Bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="25TL" />
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:contentDescription="@string/expand_collapse"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_right" />
-
-        <TextView
-            android:id="@+id/order_product_price"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/spacing_tiny"
-            android:textAppearance="@style/Text.Bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/order_market_name"
-            tools:text="25TL" />
-
-        <View
-            android:id="@+id/order_status_view"
-            android:layout_width="@dimen/view_status_size"
-            android:layout_height="@dimen/view_status_size"
-            android:layout_marginStart="@dimen/spacing_base"
-            android:layout_marginTop="@dimen/spacing_tiny"
-            android:background="@drawable/view_status_orange"
-            app:layout_constraintStart_toEndOf="@id/order_line"
-            app:layout_constraintTop_toBottomOf="@+id/order_name" />
-
-        <TextView
-            android:id="@+id/order_status_text"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:ellipsize="end"
-            android:maxLines="1"
-            android:textAppearance="@style/Text"
-            android:textColor="@color/orange"
-            android:layout_marginStart="@dimen/spacing_small"
-            android:layout_marginTop="@dimen/spacing_tiny"
-            app:layout_constraintStart_toEndOf="@+id/order_status_view"
-            app:layout_constraintTop_toBottomOf="@+id/order_name"
-            tools:text="Hazırlanıyor" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/order_summary_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/order_content_layout"
-        android:padding="@dimen/spacing_base"
-        android:background="@color/gray">
-
-        <TextView
-            android:id="@+id/order_detail"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="90dp"
-            android:ellipsize="end"
-            android:maxLines="1"
-            android:textAppearance="@style/Text"
-            app:layout_constraintEnd_toStartOf="@+id/order_summary_price"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/order_market_name"
-            tools:ignore="NotSibling"
-            tools:text="Sıvı Sabun 250 ml" />
-
-        <TextView
-            android:id="@+id/order_summary_price"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="@style/Text.Bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="25TL" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
