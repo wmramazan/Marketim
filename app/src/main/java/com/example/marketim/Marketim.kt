@@ -3,6 +3,7 @@ package com.example.marketim
 import android.app.Application
 import com.example.marketim.di.networkModule
 import com.example.marketim.util.ReleaseTree
+import com.orhanobut.hawk.Hawk
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 import timber.log.Timber
@@ -18,6 +19,7 @@ class Marketim : Application() {
 
         configureLog()
         configureDi()
+        configureLocalStorage()
     }
 
     private fun configureLog() = Timber.plant(
@@ -30,5 +32,7 @@ class Marketim : Application() {
             networkModule
         ))
     }
+
+    private fun configureLocalStorage() = Hawk.init(this).build()
 
 }

@@ -8,4 +8,6 @@ object Constants {
     const val BASE_URL = "http://kariyertechchallenge.mockable.io/"
     const val USERNAME = "kariyer"
     const val PASSWORD = "2019ADev"
+
+    const val KEY_LOGGED_IN = "LOGGED_IN"
 }
