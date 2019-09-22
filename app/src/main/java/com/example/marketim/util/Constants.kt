@@ -10,4 +10,5 @@ object Constants {
     const val PASSWORD = "2019ADev"
 
     const val KEY_LOGGED_IN = "LOGGED_IN"
+    const val KEY_REMEMBER_ME = "REMEMBER_ME"
 }

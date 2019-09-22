@@ -2,6 +2,7 @@ package com.example.marketim
 
 import android.app.Application
 import com.example.marketim.di.networkModule
+import com.example.marketim.di.presenterModule
 import com.example.marketim.util.ReleaseTree
 import com.orhanobut.hawk.Hawk
 import org.koin.android.ext.koin.androidContext
@@ -29,7 +30,8 @@ class Marketim : Application() {
     private fun configureDi() = startKoin {
         androidContext(this@Marketim)
         modules(listOf(
-            networkModule
+            networkModule,
+            presenterModule
         ))
     }
 

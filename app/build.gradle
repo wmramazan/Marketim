@@ -57,4 +57,7 @@ dependencies {
 
     // Local storage
     implementation "com.orhanobut:hawk:2.0.1"
+
+    // Validations
+    implementation 'com.afollestad:vvalidator:0.5.1'
 }
